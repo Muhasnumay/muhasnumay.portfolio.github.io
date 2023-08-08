@@ -309,7 +309,7 @@ width: 100%;
 }
 
 .contact-right {
-  flex-basis: 100%;
+  flex-basis: 60%;
 }
 
 .contact-left p {
@@ -398,7 +398,12 @@ nav .fas {
   #header {
     background-image: url(images/bg.png);
   }
-
+  .contact-left {
+    flex-basis: 100%;
+  }
+  .contact-right {
+    flex-basis: 100%;
+  }
   .header-text {
     margin-top: 100%;
     font-size: 16px;
@@ -435,7 +440,12 @@ nav .fas {
   #header {
     background-image: url(images/bg.png);
   }
-
+  .contact-left {
+    flex-basis: 100%;
+  }
+  .contact-right {
+    flex-basis: 100%;
+  }
   .header-text {
     margin-top: 100%;
     font-size: 16px;
