@@ -1,1 +1,1 @@
-# Portfolio Website using HTML+CSS+JQUERY
+# Portfolio Website using HTML+CSS
