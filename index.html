@@ -49,8 +49,8 @@
             <div class="tab-titles">
               <p class="tab-links active-link" onclick="openTab('experience')">Experience</p>
               <p class="tab-links" onclick="openTab('education')">Education</p>
+              <p class="tab-links" onclick="openTab('certification')">Certification</p>
               <p class="tab-links" onclick="openTab('project')">Profesional Project</p>
-              <p class="tab-links" onclick="openTab('certification')">Organization</p>
             </div>
             <div class="tab-contents active-tab" id="experience">
               <ul>
@@ -99,87 +99,176 @@
               </ul>
             </div>
             <div class="tab-contents" id="project">
-              <ul>
+              <h3 onclick="toggleList('kai', this)">PT Kereta Api Indonesia <span class="arrow">▼</span></h3>
+              <ul id="kai" class="project-list">
+                <!-- list projects -->
                 <li>
-                  <span>Mar 2024 - Present</span><br />
-                  <p>Migration of Database RTS</p>
-                  PT Kereta Api Indonesia
+                  <span>Mar 2025 - Present</span><br />
+                  <p>Data Monitoring Kinerja Perusahaan</p>
                 </li>
                 <li>
                   <span>Jan 2024 - Present</span><br />
-                  <p>Tuning & Maintenance RTS</p>
-                  PT Kereta Api Indonesia
+                  <p>Tuning & Maintenance RTS 4.0</p>
                 </li>
                 <li>
-                  <span>Des 2023 - Present</span><br />
-                  <p>Revitalization Security Access Door</p>
-                  PT Kereta Api Indonesia
+                  <span>Nov 2024 - Present</span><br />
+                  <p>Pekerjaan Preventive Maintenance dan Corrective Maintenance Database PostgreSQL</p>
                 </li>
                 <li>
-                  <span>Des 2023 - Jan 2024</span><br />
-                  <p>Installation & Configuration VM Malang Station</p>
-                  PT Kereta Api Indonesia
+                  <span>Dec 2024 - Present</span><br />
+                  <p>Asset dan Penagihan</p>
                 </li>
                 <li>
-                  <span>Nov 2023 - Mar 2023</span><br />
-                  <p>Company Profile & Content Management System</p>
-                  PT FANINTEK
+                  <span>Aug 2024 - Jan 2025</span><br />
+                  <p>Pengadaan Tim OnSite Layanan IT Service Bandung & Surabaya</p>
                 </li>
                 <li>
-                  <span>Oct 2023 - Dec 2023</span><br />
-                  <p>Enhancement Dashboard ELK PT KAI</p>
-                  PT Kereta Api Indonesia
+                  <span>Jan 2024 - Jun 2024</span><br />
+                  <p>Manage Services Engineer</p>
                 </li>
                 <li>
-                  <span>Oct 2023 - Nov 2023</span><br />
-                  <p>Non-Disclosure Agreement App</p>
-                  PT Kereta Api Indonesia
+                  <span>Jan 2024 - Jan 2024</span><br />
+                  <p>VM KIOSK Ticketing Stasiun Lampung & Sumatera Selatan</p>
+                </li>
+
+                <li>
+                  <span>Dec 2024 - Jan 2025</span><br />
+                  <p>Pengadaan Jasa Onsite Support Pengembangan Rail Reliability Mapping</p>
+                </li>
+
+                <li>
+                  <span>Oct 2024 - Dec 2024</span><br />
+                  <p>Maintenance Gate Stasiun Bandara International Minangkabau</p>
                 </li>
                 <li>
-                  <span>Oct 2023 - Nov 2023</span><br />
-                  <p>Visitor Management System</p>
-                  PT Kereta Api Indonesia
+                  <span>Oct 2024 - Jan 2025</span><br />
+                  <p>Pekerjaan House Keeping dan Archiving Database Tiketing</p>
                 </li>
                 <li>
-                  <span>Aug 2022 - Dec 2022</span><br />
-                  <p>Marketplace Website</p>
-                  Media Data Computer
+                  <span>Sep 2024 - Nov 2024</span><br />
+                  <p>Enhancement Dashboard Monitoring Performance App RTS</p>
                 </li>
                 <li>
-                  <span>Jun 2022 - Jul 2022</span><br />
-                  <p>Data Analyst</p>
-                  PT Bank Syariah Indonesia
+                  <span>Aug 2024 - Sep 2024</span><br />
+                  <p>Vending Machine Ticketing Stasiun Jember</p>
+                </li>
+                <li>
+                  <span>Jul 2024 - Oct 2024</span><br />
+                  <p>Migrasi Database Ticketing RTSNG</p>
+                </li>
+              </ul>
+
+              <h3 onclick="toggleList('fan', this)">PT FAN Integrasi Teknologi <span class="arrow">▼</span></h3>
+              <ul id="fan" class="project-list">
+                <li>
+                  <span>Jul 2024 - Oct 2024</span><br />
+                  <p>DATFAN - Daily Activity FANINTEK</p>
+                </li>
+              </ul>
+
+              <h3 onclick="toggleList('bjb', this)">PT BJB Syariah <span class="arrow">▼</span></h3>
+              <ul id="bjb" class="project-list">
+                <li>
+                  <span>Jul 2024 - Present</span><br />
+                  <p>Pengadaan Dukungan Teknis Local Support Database PostgreSQL</p>
                 </li>
               </ul>
             </div>
+
+            <script>
+              function toggleList(id, header) {
+                var list = document.getElementById(id);
+                var arrow = header.querySelector(".arrow");
+
+                if (list.style.display === "none" || list.style.display === "") {
+                  list.style.display = "block";
+                  header.classList.add("active");
+                  arrow.textContent = "▲"; // Panah ke atas
+                } else {
+                  list.style.display = "none";
+                  header.classList.remove("active");
+                  arrow.textContent = "▼"; // Panah ke bawah
+                }
+              }
+            </script>
+
+            <style>
+              h3 {
+                cursor: pointer;
+                color: gray !important;
+                margin-bottom: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: #222;
+                padding: 10px;
+                border-radius: 8px;
+              }
+
+              h3.active {
+                background-color: #444;
+                color: white !important;
+              }
+
+              .arrow {
+                margin-left: 10px;
+                font-size: 16px;
+              }
+
+              .project-list {
+                display: none;
+                margin-left: 20px;
+                margin-bottom: 20px;
+              }
+            </style>
+
             <div class="tab-contents" id="certification">
               <ul>
                 <li>
-                  <span>Feb 2022 – Aug 2022</span>
-                  <p>Indonesian Youth Changemakers</p>
-                  Executive Director of Lampung Province
+                  <span>Aug 2023</span>
+                  <p>Agile Programming</p>
+                  Mindluster <br />
+                  <a href="https://www.mindluster.com/student/certificate/7576717096" target="_blank" class="download-link">Download </a>
                 </li>
                 <li>
-                  <span>Jun 2021 – Mar 2022</span>
-                  <p>Himpunan Mahasiswa Teknik Informatika</p>
-                  Staf of Ekstrakampus Division
+                  <span>May 2024</span>
+                  <p>Project Management</p>
+                  GreatLearning <br />
+                  <a href="https://drive.google.com/file/d/1IrwCb3S3x9vK4yz4z-zfUKXImV77oP6V/view?usp=sharing" target="_blank" class="download-link">Download </a>
                 </li>
                 <li>
-                  <span>Jun 2021 – Mar 2022</span>
-                  <p>PERMIKOMNAS WILAYAH 3</p>
-                  Delegated of HMIF ITERA
+                  <span>May 2024</span>
+                  <p>Certified Associate In Scrum Fundamentals™ - CASF™</p>
+                  SkillFront <br />
+                  <a href="https://www.skillfront.com/certifications/SkillFront-SFE005b1708f0645-43907380675033.pdf" target="_blank" class="download-link">Download </a>
                 </li>
                 <li>
-                  <span>Oct 2021 – Nov 2021</span>
-                  <p>SYI Leadership Camp</p>
-                  Participants in the Economic Field
+                  <span>Jun 2024 – Jun 2027</span>
+                  <p>Scrum Foundation Professional Certification - SFPC™</p>
+                  CertiProf <br />
+                  <a href="https://www.credly.com/badges/b1a7176b-5c8c-49cc-9ca1-7712bffa07a3/linked_in_profile" target="_blank" class="download-link">Download </a>
                 </li>
                 <li>
-                  <span>Sep 2017 – Mei 2018</span>
-                  <p>SRC SMAS Sugar Group Companies</p>
-                  Head of Economic Division
+                  <span>Jun 2024</span>
+                  <p>Project Management Essentials Certified – PMEC</p>
+                  Management & Strategy Institute <br />
+                  <a href="https://drive.google.com/file/d/1Ewt4cvTk9ciKF7EEGNfvGkPGrFOyygG8/view?usp=sharing" target="_blank" class="download-link">Download </a>
                 </li>
               </ul>
+
+              <style>
+                .download-link {
+                  color: #333; /* Abu-abu pekat */
+                  text-decoration: none; /* Menghilangkan garis bawah */
+                  font-weight: bold;
+                  display: block; /* Menjadikan link tampil di bawah */
+                  margin-top: 5px; /* Memberi sedikit jarak */
+                }
+
+                .download-link:hover {
+                  text-decoration: underline; /* Garis bawah saat hover */
+                }
+              </style>
             </div>
           </div>
         </div>
