@@ -13,9 +13,9 @@ body {
 #header {
   width: 100%;
   height: 100vh;
-  background-image: url(images/bg.png);
+  background-image: url(images/pp.jpg);
   background-size: cover;
-  background-position: center;
+  background-position: center top;
 }
 
 .container {
@@ -392,18 +392,49 @@ form textarea {
 nav .fas {
   display: none;
 }
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
 
-/* ----------CSS FOR SMALL SCREEN---------- */
-@media only screen and (max-width: 600px) {
+.close {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+/* ----------CSS FOR SMALL SCREEN (Hamburger Menu)---------- */
+@media screen and (max-width: 600px) {
+  /* Ganti background header untuk mode mobile */
   #header {
-    background-image: url(images/bg.png);
+    background-image: url(images/pp.jpg);
   }
-  .contact-left {
-    flex-basis: 100%;
+
+  /* Menampilkan ikon hamburger */
+  .hamburger {
+    display: block;
+    font-size: 25px;
+    cursor: pointer;
+    color: white;
   }
-  .contact-right {
-    flex-basis: 100%;
+
+  /* Menampilkan ikon close hanya saat menu terbuka */
+  .close {
+    display: none;
+    font-size: 25px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
   }
+
+  /* Menyesuaikan ukuran teks untuk mode mobile */
   .header-text {
     margin-top: 100%;
     font-size: 16px;
@@ -413,24 +444,41 @@ nav .fas {
     font-size: 30px;
   }
 
+  /* Navbar */
   nav .fas {
     display: block;
     font-size: 25px;
   }
 
+  /* Sembunyikan menu secara default */
   nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
     background: #b54768;
-    position: fixed;
-    top: 0;
-    width: 200;
-    right: 0;
-    height: 100vh;
-    padding-top: 50px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
   }
 
+  /* Tampilan menu ketika terbuka */
+  nav ul.show {
+    display: flex;
+  }
+
+  /* Menyesuaikan ukuran dan margin menu */
   nav ul li {
     display: block;
     margin: 25px;
+    text-align: center;
+  }
+
+  /* Menampilkan ikon close saat menu aktif */
+  nav ul.show .close {
+    display: block;
   }
 }
 
@@ -438,7 +486,7 @@ nav .fas {
 @media only screen and (max-width: 600px) {
   /* Adjust the header image and text size for small screens */
   #header {
-    background-image: url(images/bg.png);
+    background-image: url(images/pp.jpg);
   }
   .row {
     display: grid;
@@ -508,8 +556,7 @@ nav .fas {
   }
 
   nav ul.show {
-    transform: translateX(0);
-    /* Show the menu when 'show' class is applied */
+    display: flex;
   }
 
   nav ul li {
