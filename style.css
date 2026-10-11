@@ -191,7 +191,9 @@ width: 100%;
   line-height: 30 px;
   font-weight: 300;
   border-radius: 10px;
-  transition: background 0.5s, transform 0.5s;
+  transition:
+    background 0.5s,
+    transform 0.5s;
 }
 
 .services-list div i {
@@ -332,7 +334,9 @@ width: 100%;
   margin-right: 15px;
   color: #ababab;
   display: inline-block;
-  transition: color 0.5s, transform 0.5s;
+  transition:
+    color 0.5s,
+    transform 0.5s;
 }
 
 .social-icons a:hover {
