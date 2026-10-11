@@ -508,11 +508,16 @@
             <a href="images/CV - Muhammad Asyroful Nur Maulana Yusuf.pdf" download class="btn btn2">Download CV</a>
           </div>
           <div class="contact-right">
-            <form name="muhasnumay-form">
+            <form name="muhasnumay-form" id="contact-form">
               <input type="text" name="name" placeholder="Your Name" required />
+
               <input type="email" name="email" placeholder="Your Email" required />
-              <textarea name="pesan" rows="6" placeholder="Your Message"></textarea>
-              <button type="submit" class="btn btn3">Submit</button>
+
+              <textarea name="pesan" rows="6" placeholder="Your Message" required></textarea>
+
+              <button type="submit" class="btn btn3" id="submit-btn">Submit</button>
+
+              <p id="form-status" role="status"></p>
             </form>
           </div>
         </div>
@@ -524,16 +529,35 @@
     <!-- Scrip Spreadsheeet -->
     <script>
       const scriptURL = "https://script.google.com/macros/s/AKfycbwNsUpDGVHaAF4XdyTWkgEeCjYd-gk2XYsrPVO-nMxLtXDq2GFyscXJE4WuD3Hm0el0RQ/exec";
-      const form = document.forms["muhasnumay-form"];
 
-      form.addEventListener("submit", (e) => {
+      const form = document.forms["muhasnumay-form"];
+      const status = document.getElementById("form-status");
+      const submitBtn = document.getElementById("submit-btn");
+
+      form.addEventListener("submit", async function (e) {
         e.preventDefault();
-        fetch(scriptURL, { method: "POST", body: new FormData(form) })
-          .then((response) => {
-            form.reset();
-            console.log("Success!", response);
-          })
-          .catch((error) => console.error("Error!", error.message));
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Mengirim...";
+        status.textContent = "";
+
+        try {
+          await fetch(scriptURL, {
+            method: "POST",
+            mode: "no-cors",
+            body: new FormData(form),
+          });
+
+          status.textContent = "Permintaan dikirim.";
+
+          form.reset();
+        } catch (error) {
+          console.error("Kesalahan pengiriman:", error);
+          status.textContent = "Gagal mengirim.";
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Submit";
+        }
       });
     </script>
 
